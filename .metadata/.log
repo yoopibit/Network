@@ -127,3 +127,171 @@ java.lang.NullPointerException
 
 !ENTRY org.eclipse.epp.logging.aeri.ui 2 6 2016-09-20 02:18:24.506
 !MESSAGE Failed to determine ETAG for remote problems database. Stopping update. Version: 1.0.0.v20150617-0732
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-20 02:20:47.903
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:168)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:52)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:268)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:252)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:175)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:138)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:97)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2225)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:130)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:60)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.importProjects(GitImportWizard.java:253)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.access$2(GitImportWizard.java:235)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard$4.run(GitImportWizard.java:205)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: OK
+Contains: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-09-20 02:20:47.904
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2016-09-20 02:20:47.904
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-20 02:20:47.904
+!MESSAGE C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-20 02:20:48.209
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:168)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:52)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:268)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:252)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:175)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:138)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:97)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2225)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:130)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:60)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.importProjects(GitImportWizard.java:253)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.access$2(GitImportWizard.java:235)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard$4.run(GitImportWizard.java:205)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: OK
+Contains: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-09-20 02:20:48.209
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2016-09-20 02:20:48.209
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-20 02:20:48.209
+!MESSAGE C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-20 02:20:58.213
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:168)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:52)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:268)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:252)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:175)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:138)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:97)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2225)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:130)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:60)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.importProjects(GitImportWizard.java:253)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.access$2(GitImportWizard.java:235)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard$4.run(GitImportWizard.java:205)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: OK
+Contains: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-09-20 02:20:58.213
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2016-09-20 02:20:58.213
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-20 02:20:58.213
+!MESSAGE C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-20 02:21:06.728
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:168)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:52)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:268)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:252)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:175)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:138)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:97)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2225)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:130)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:60)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.importProjects(GitImportWizard.java:253)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.access$2(GitImportWizard.java:235)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard$4.run(GitImportWizard.java:205)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: OK
+Contains: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-09-20 02:21:06.729
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2016-09-20 02:21:06.729
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-20 02:21:06.729
+!MESSAGE C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-20 02:21:07.783
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:168)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:52)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:268)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:252)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:175)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:138)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:97)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2225)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:130)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:60)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.importProjects(GitImportWizard.java:253)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.access$2(GitImportWizard.java:235)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard$4.run(GitImportWizard.java:205)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: OK
+Contains: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-09-20 02:21:07.783
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2016-09-20 02:21:07.783
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-20 02:21:07.783
+!MESSAGE C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-09-20 02:21:28.880
+!MESSAGE Invalid project description.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:168)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:52)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:268)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:252)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createExistingProject(ProjectUtils.java:175)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.access$0(ProjectUtils.java:138)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils$1.run(ProjectUtils.java:97)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2225)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:130)
+	at org.eclipse.egit.ui.internal.clone.ProjectUtils.createProjects(ProjectUtils.java:60)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.importProjects(GitImportWizard.java:253)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard.access$2(GitImportWizard.java:235)
+	at org.eclipse.egit.ui.internal.clone.GitImportWizard$4.run(GitImportWizard.java:205)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Contains: OK
+Contains: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2016-09-20 02:21:28.881
+!MESSAGE Invalid project description.
+!SUBENTRY 2 unknown 0 0 2016-09-20 02:21:28.881
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-20 02:21:28.881
+!MESSAGE C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1 overlaps the workspace location: C:\Users\Yura\Desktop\Task\5 семестр\Network\Lab1

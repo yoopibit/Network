@@ -1,37 +1,33 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Vector;
 
 public class Ball implements Runnable {
-	private int _numBall;
+	private int deepWindow = Balls.radiusOfBall;
 	private double _speed;
-	private int _angle;
-	private Dimension _pos;
+	public int _angle;
 	private Color _color;
-	private double _x, _y;
-	private double _startX, _startY;
+	public double _x, _y;
+	private Balls _balls;
 	
-	public void  SetNumBall(int numBall) {
-		_numBall = numBall;
-	}
+	
 	public void  SetSpeed(double speed) {
 		_speed = speed;
 	}
 	public void  SetAngle(int angle) {
-		_angle = angle;
+		set_angle(angle);
 	}
-	public void  SetPosition(Dimension pos) {
-		_pos = pos;
+	public Color GetColor()
+	{
+		return _color;
 	}
-	
-	Ball(int numBall, double speed, int angle, Dimension pos, Color color) {
-		_x = _y = 0.0;
-		_numBall = numBall;
-		_angle = angle;
+	Ball(double speed, int angle, int x, int y, Color color, Balls balls) {
+		set_angle(angle);
 		_speed = speed;
-		_pos = pos;
+		_x = x;
+		_y = y;
 		_color = color;
-		_startX = Balls.balls.elementAt(_numBall).width;
-		_startY = Balls.balls.elementAt(_numBall).height;
+		_balls = balls;
 	}
 	
 	public void run()
@@ -42,11 +38,47 @@ public class Ball implements Runnable {
 	}
 	
 	private void CalculatePos() {
-		double radians = Math.toRadians(_angle);
+		double radians = Math.toRadians(get_angle());
 		_y += Math.sin(radians) * _speed;
 		_x += Math.cos(radians) * _speed;
+		CheckInForm();
+		//CheckAnotherBallDrop();
+	}
+	private void CheckInForm()
+	{
+		Dimension sizeWindow = _balls.getSize();
+		if (_x < 0 || _y < 0 || _x > (sizeWindow.getWidth() - deepWindow) ||
+				_y > (sizeWindow.getHeight() - deepWindow) ) {
+			set_angle(NewAngle(get_angle()));
+			if (_x < 0 || _y < 0) {
+				_x += 3;
+				_y += 3;
+			}else {
+				_x -= 3;
+				_y -= 3;
+			}
+				
+				
+		}
+		if (_x - Balls.radiusOfBall > sizeWindow.getWidth() || 
+				_y - Balls.radiusOfBall > sizeWindow.getHeight()){
+			_x = sizeWindow.getWidth() - Balls.radiusOfBall * 2;
+			_y = sizeWindow.getHeight() - Balls.radiusOfBall * 2;
+		}
 		
-		Balls.balls.elementAt(_numBall).height = (int)(_startY + _y);
-		Balls.balls.elementAt(_numBall).width = (int)(_startX + _x);
+	}
+	
+	public static int NewAngle(int angle){
+		return (angle + 100) % 360;
+	}
+	public static double Distance(int x1, int y1, int x2, int y2) {
+		return Math.sqrt( (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) );
+	}
+	public int get_angle() {
+		return _angle;
+	}
+	public void set_angle(int _angle) {
+		this._angle = _angle;
 	}
 }
+

@@ -4,36 +4,57 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.util.*;   			// імпортуються класи з  пакетів 
 
-public class Balls extends Applet  {
-	
-	public static Vector<Dimension> balls;
+public class Balls extends Applet implements Runnable {
+	public static Vector<Ball> balls;
+	public static Vector<Thread> ballsThread;
+	int MaxBalls = 5;
 	public static int radiusOfBall;
-//	Dimension dmDown;   //  поля для збереження  координат лінії (початок )
-//	Dimension dmUp;   //  поля для збереження  координат лінії (кінець лінії)
-//	Dimension dmPrev; //  Координати кінця старої лінії  
-	boolean bDrawing; //  стан аплета:  малювання лінії - true, інший- false
-	//Vector lines;    //  об’єкт  для зберігання координат ліній
-	public String getAppletInfo( ) {  // метод для повернення назви аплету
+	Thread animator;
+	int delay;
+	int frame;
+	public static boolean bDrawing;
+	public String getAppletInfo( ) {
 			return "Draw Balls";
   	}
 	
 	public void init(){
-		balls = new Vector<Dimension >();
-		radiusOfBall = 20;
-		Runnable runnable = new Loop(this);	
-		Thread thread = new Thread(runnable);
-		thread.start();
-//		try {
-//			thread.join();
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+		ballsThread = new Vector<Thread>();
+		balls = new Vector<Ball>();
+		radiusOfBall = 80;
+		String str = getParameter("fps");
+		int fps = (str != null) ? Integer.parseInt(str) : 10;
+		delay = (fps > 0) ? (1000 / fps) : 100;
 	}
-	public boolean IfDraw()
-	{
-		return bDrawing;
-	}
+	 public void start() {
+			animator = new Thread(this);
+			animator.start();
+	 }
+	 public void run() {
+			// Remember the starting time
+			long startTime = System.currentTimeMillis();
+			//This is the animation loop.
+			
+			while (Thread.currentThread() == animator) {			
+			    
+				CheckAnotherBallDrop();
+				//Advance the animation frame. 
+			    frame++;
+			    
+			    //Display it.
+			    repaint();
+			    
+			    //Delay depending on how far we are behind.
+			    try { 
+			    	startTime +=delay;
+			    	Thread.sleep(Math.max(0, startTime-System.currentTimeMillis())); 
+			    } catch (InterruptedException e) { 
+			    	break; 
+			    }
+			}
+	 }
+
 	
+	@Override
 	public void paint(Graphics g) {	 //   метод  малює лінії
 		Dimension dimAppWndDimension = getSize();
 		setBackground(Color.pink);
@@ -41,70 +62,72 @@ public class Balls extends Applet  {
 		g.drawRect(0, 0, dimAppWndDimension.width  - 1,dimAppWndDimension.height - 1);    
 		for (int i=0; i < balls.size(); i++) 	 
 		 {
-			g.drawOval(	(int)balls.elementAt(i).getWidth(),
-						(int)balls.elementAt(i).getHeight(),
+			Ball currentBall = balls.elementAt(i);
+			int x = (int)currentBall._x;
+			int y = (int)currentBall._y;
+			g.drawOval(	x,
+						y,
 						radiusOfBall, 
 						radiusOfBall
 					  );
-					
-//			Rectangle p = (Rectangle)lines.elementAt(i);	 
-//			g.drawLine(p.width, p.height,  p.x, p.y);
-//			g.drawString("<" + p.width+","+p.height+">",p.width,p.height);
-//			g.drawString("<"+p.x+","+p.y+">",p.x,p.y);
+			g.setColor(currentBall.GetColor());
+			g.fillOval(x, y, radiusOfBall, radiusOfBall);
 		 }
-		//bDrawing = false;
   	}
 	
-//	public boolean mouseDown(Event evt,int x,int y)  { 
-//    	if(evt.clickCount > 1)    { 
-//    	 	 lines.removeAllElements(); 
-//    	 	 repaint();
-//    	 	 return true;
-//    	}
-//    	dmDown = new Dimension(x, y); //зберігання поточних координат курсору 
-//    	dmPrev = new Dimension(x, y);
-//    	bDrawing = false;
-//    	return true;
-//	}
+	public boolean mouseDown(Event evt,int x,int y)  { 
+    	if(evt.clickCount > 1) { 
+    	 	 //balls.removeAllElements();
+    		for (Thread ballThread: ballsThread) {
+				ballThread.stop();
+			} 
+    		ballsThread.clear();
+    		balls.clear();
+    	 	return true;
+    	}
+    	return true;
+	}
 	public boolean mouseUp(Event evt, int x, int y){
-		Random rand = new Random();
-		Dimension pos = new Dimension(x, y);
+		if (balls.size() > MaxBalls)
+			return false;
 		
-		balls.addElement(pos);
-		Runnable ball = new Ball(balls.size() - 1, 0.0001, rand.nextInt()%360, pos, Color.blue);
+		Random rand = new Random();
+		
+		Runnable ball = new Ball(0.00003, rand.nextInt()%360,
+						         x, y , new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), this);
+		
+		balls.addElement((Ball)ball);
+		
 		Thread thread = new Thread(ball);
+		ballsThread.addElement(thread);
 		thread.start();
 		bDrawing = true;
-		
-//		try {
-//			thread.join();
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+
 		return true;
 		
-		//		if(bDrawing) {
-//			dmUp = new Dimension(x, y);
-//			lines.addElement(   
-//					new Rectangle(dmDown.width, 
-//							dmDown.height, x, y)); //  додавання нового елементу в масив lines
-//			repaint();
-//			bDrawing = false; //скидання ознаки малювання
-//		}
-//		return true;
 	}
-//	public boolean mouseDrag(Event evt, int x, int y)  {
-//		Graphics g = getGraphics();
-//		bDrawing = true;
-//		g.setColor(Color.yellow); // стирання лінії - малювання  кольором фону
-//		g.drawLine(dmDown.width,dmDown.height,dmPrev.width,dmPrev.height);
-//		g.setColor(Color.black); 	//  малювання  лінії чорним кольором кольором  
-//		g.drawLine(dmDown.width, dmDown.height, x, y);
-//		dmPrev = new Dimension(x, y); 	// зберігання  координат лінії 
-//		return true;
-//	}
-//	 	public boolean mouseMove(Event evt, int x, int y)  {
-//	 		bDrawing = false; 	//відключає режим малювання
-//	 		return true;
-//	 	}	
+	private void CheckAnotherBallDrop() {
+			
+		for (int i = 0; i < balls.size(); i++) {
+			for (int j = i + 1; j < balls.size(); j++) {
+				Ball iPos = balls.elementAt(i);
+				Ball jPos = balls.elementAt(j);
+				double distance = Ball.Distance((int)jPos._x, (int)jPos._y, (int)iPos._x, (int)iPos._y); 
+				if (distance < Balls.radiusOfBall * 1.5){
+					
+					iPos._x -= (jPos._x - iPos._x) / radiusOfBall * 2;
+					jPos._x += (jPos._x - iPos._x) / radiusOfBall * 2;
+										
+					iPos._y -= (jPos._y - iPos._y) / radiusOfBall * 2;
+					jPos._y += (jPos._y - iPos._y) / radiusOfBall * 2;
+				}
+				if (distance < Balls.radiusOfBall * 1.2){
+					
+					iPos._angle = (iPos._angle + 90) % 360;
+					jPos._angle = (jPos._angle - 90) % 360;
+					
+				}
+			}
+		}
+	}
 }
